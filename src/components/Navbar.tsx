@@ -3,19 +3,19 @@ import { Link } from "react-router-dom";
 export default function Navbar() {
   return (
     <div className="shadow-lg py-4 px-2 flex justify-center items-center">
-      <div className="template flex justify-between items-center w-full">
-        <div>
+      <div className="template flex justify-between xl:justify-start px-3 gap-6 items-center w-full relative">
+        <div className="">
           <Link to={"/"}>
-            <strong className="text-orange-600 text-2xl px-3 py-4 rounded">
+            <strong className="text-orange-600 text-2xl py-4 rounded">
               Eliz Manav
             </strong>
           </Link>
         </div>
 
-        <div className="hidden xl:flex lg:flex md:flex justify-center items-center gap-">
+        <div className="hidden xl:flex lg:flex md:flex justify-center items-center w-4/6 absolute left-1/2 transform -translate-x-1/2">
           <input
             type="search"
-            className="w-[300px] bg-gray-200 px-3 py-2 rounded focus:outline-none font-bold"
+            className="w-full bg-gray-200/50 px-3 py-2 rounded focus:outline-none font-bold"
             placeholder="Ürün Ara"
           />
           <button className="p-3 hover:rounded-full transition-all  rounded text-white bg-orange-500 cursor-pointer">

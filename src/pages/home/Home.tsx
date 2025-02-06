@@ -3,8 +3,8 @@ import Products from "./components/Products";
 
 export default function Home() {
   return (
-    <div className="flex justify-center items-center w-full">
-      <div className="template">
+    <div className="flex justify-center items-center w-full pb-5">
+      <div className="template flex flex-col  gap-16">
         <HeroSection />
         <Products />
       </div>

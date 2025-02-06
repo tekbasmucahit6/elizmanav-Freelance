@@ -1,4 +1,5 @@
 import Contact from "../components/contact/Contact";
+import Footer from "../components/footer/Footer";
 import Navbar from "../components/Navbar";
 import AllRoutes from "../routes/AllRoutes";
 
@@ -11,6 +12,9 @@ export default function Layouts() {
       </div>
       <div>
         <AllRoutes />
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

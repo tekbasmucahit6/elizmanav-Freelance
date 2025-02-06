@@ -125,10 +125,10 @@ export default function Products() {
   return (
     <div className="flex flex-col justify-center items-center w-full ">
       <h1 className="text-4xl font-bold mb-4">Ürünlerimiz</h1>
-      <div className="grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-2 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6 px-2">
         {
           products.map((dt, i) => (
-            <div className="flex flex-col justify-start items-center shadow w-60 " key={i}>
+            <div className="flex flex-col justify-start items-center shadow w-full xl:w-56 lg:w-56 md:w-56 border  h-82" key={i}>
               <div className="w-full">
                 <img src={dt.img} className="w-full" alt="" />
               </div>
