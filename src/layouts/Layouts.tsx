@@ -4,7 +4,7 @@ import AllRoutes from "../routes/AllRoutes";
 
 export default function Layouts() {
   return (
-    <div className="min-w-screen flex flex-col ">
+    <div className="flex flex-col ">
       <div>
         <Contact />
         <Navbar />
