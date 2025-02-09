@@ -1,7 +1,7 @@
 export default function Footer() {
     return (
         <footer className="bg-orange-600 text-white py-6 px-6 w-full flex flex-col justify-center items-center gap-5">
-            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left w-full">
                 {/* Şirket Bilgileri */}
                 <div>
                     <h2 className="text-lg font-semibold">Eliz Manav</h2>
@@ -33,7 +33,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className="max-w-6xl mx-auto mt-6 text-center border-t border-gray-400 pt-4">
+            <div className="max-w-6xl mx-auto mt-6 text-center border-t border-gray-400 pt-4 w-full">
                 <p className="text-sm">&copy; 2025 Eliz Manav. Tüm Hakları Saklıdır.</p>
                 <p className="text-sm">Designed by <a href="https://www.mucahittekbas.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-200">Mücahit Tekbaş</a></p>
             </div>
