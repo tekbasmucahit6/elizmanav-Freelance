@@ -430,7 +430,7 @@ export default function Products() {
         {products.map((product) => (
           <div
             key={product.id}
-            className="bg-white rounded-2xl shadow-md hover:scale-110 transition-all flex flex-col items-center relative"
+            className="bg-white rounded-2xl shadow-md hover:scale-110 transition-all flex flex-col items-center"
           >
             <img
               src={product.image}
@@ -442,11 +442,6 @@ export default function Products() {
                 {product.name}
               </h2>
               <p className="text-orange-600 font-bold mt-2">{product.price}</p>
-            </div>
-            <div className="absolute top-1 right-2">
-              <p className="bg-green-700 hover:bg-green-700 text-white py-2 px-2 rounded text-xs">
-                %100 doğal
-              </p>
             </div>
           </div>
         ))}
