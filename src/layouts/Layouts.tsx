@@ -5,7 +5,7 @@ import AllRoutes from "../routes/AllRoutes";
 
 export default function Layouts() {
   return (
-    <div className="flex flex-col ">
+    <div className="flex flex-col justify-between  h-screen">
       <div>
         <Contact />
         <Navbar />

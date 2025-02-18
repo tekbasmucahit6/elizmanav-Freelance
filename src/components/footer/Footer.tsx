@@ -6,7 +6,7 @@ export default function Footer() {
                 <div>
                     <h2 className="text-lg font-semibold">Eliz Manav</h2>
                     <p className="text-sm mt-2">Taze ve doğal ürünler ile sağlıklı yaşamın adresi.</p>
-                    <p className="text-sm mt-2">Adres: Örnek Mah. 123. Sokak, İstanbul</p>
+                    <p className="text-sm mt-2">Adres: Gülbahar hatun mahallesi Mustafa satan 2.sokak ikbal sitesi no 2/c merkez tokat</p>
                     <p className="text-sm">Telefon: +90 555 123 45 67</p>
                     <p className="text-sm">E-posta: info@elizmanav.com</p>
                 </div>

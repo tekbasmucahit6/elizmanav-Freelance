@@ -1,6 +1,10 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-export default function Navbar() {
+import { useSearch } from "../hooks/useSearch";
+const Navbar: React.FC = () => {
+  const { setSearch } = useSearch();
+
+
   return (
     <div className="shadow-lg py-4 px-2 flex justify-center items-center">
       <div className="template flex justify-between xl:justify-start px-3 gap-6 items-center w-full relative">
@@ -17,10 +21,8 @@ export default function Navbar() {
             type="search"
             className="w-full bg-gray-200/50 px-3 py-2 rounded focus:outline-none font-bold"
             placeholder="Ürün Ara"
+            onChange={(e) => setSearch(e.target.value)}
           />
-          <button className="p-3 hover:rounded-full transition-all  rounded text-white bg-orange-500 cursor-pointer">
-            <FaSearch />
-          </button>
         </div>
 
         <div className="flex justify-center items-center gap-2 xl:hidden lg:hidden md:hidden">
@@ -31,9 +33,12 @@ export default function Navbar() {
             type="search"
             className="w-[150px] bg-gray-100 px-3 py-1 rounded focus:outline-none"
             placeholder="Ürün Ara"
+            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>
     </div>
   );
 }
+
+export default Navbar;
