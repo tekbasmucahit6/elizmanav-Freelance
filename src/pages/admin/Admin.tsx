@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 interface Product {
   Productsid: number;
   ProductsName: string;
-  ProductsPrice: string;
+  ProductsPrice: number;
   ProductsImg: string;
 }
 
@@ -40,9 +40,9 @@ const Admin = () => {
         body: formData,
       });
       if (!response.ok) throw new Error("Ürün ekleme başarısız");
-      const data: Product = await response.json();
+      
       fetchProducts();
-      e.currentTarget.reset();
+      
       setShowAddPopup(false);
     } catch (error) {
       console.error(error);
@@ -60,7 +60,7 @@ const Admin = () => {
         body: formData,
       });
       if (!response.ok) throw new Error("Ürün güncelleme başarısız");
-      const data: Product = await response.json();
+
       fetchProducts();
       setShowEditPopup(false);
       setEditProduct(null);
