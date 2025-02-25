@@ -1,43 +1,48 @@
 import { useEffect, useState } from "react";
 
+interface Product {
+  Productsid: number;
+  ProductsName: string;
+  ProductsPrice: string;
+  ProductsImg: string;
+}
+
 const Admin = () => {
-  const [productList, setProductList] = useState([]);
+  const [productList, setProductList] = useState<Product[]>([]);
   const [showEditPopup, setShowEditPopup] = useState(false);
   const [showAddPopup, setShowAddPopup] = useState(false);
-  const [editProduct, setEditProduct] = useState(null);
-  const BaseUrl = import.meta.env.VITE_REACT_APP_BASE_URL
-  const baseImgUrl = import.meta.env.VITE_REACT_APP_BASE_IMG_URL
+  const [editProduct, setEditProduct] = useState<Product | null>(null);
+  const BaseUrl = import.meta.env.VITE_REACT_APP_BASE_URL;
+  const baseImgUrl = import.meta.env.VITE_REACT_APP_BASE_IMG_URL;
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   const fetchProducts = async () => {
     try {
-      const response = await fetch(
-      `${BaseUrl}/getAllProduct`
-      );
+      const response = await fetch(`${BaseUrl}/getAllProduct`);
       if (!response.ok) throw new Error("Ürünleri getirirken hata oluştu");
-      const data = await response.json();
-      console.log(data)
+      const data: Product[] = await response.json();
+      console.log(data);
       setProductList(data);
     } catch (error) {
       console.error(error);
     }
   };
 
-  const handleAddProduct = async (e: any) => {
+  const handleAddProduct = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+    const formData = new FormData(e.currentTarget);
     try {
       const response = await fetch(`${BaseUrl}/add`, {
         method: "POST",
         body: formData,
       });
       if (!response.ok) throw new Error("Ürün ekleme başarısız");
-      const data = await response.json();
-      // alert(data.message);
+      const data: Product = await response.json();
       fetchProducts();
-      e.target.reset();
+      e.currentTarget.reset();
       setShowAddPopup(false);
     } catch (error) {
       console.error(error);
@@ -45,21 +50,17 @@ const Admin = () => {
     }
   };
 
-  const handleUpdateProduct = async (event: any) => {
+  const handleUpdateProduct = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!editProduct) return;
-    const formData = new FormData(event.target);
+    const formData = new FormData(event.currentTarget);
     try {
-      const response = await fetch(
-        `${BaseUrl}/update/${editProduct.Productsid}`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch(`${BaseUrl}/update/${editProduct.Productsid}`, {
+        method: "POST",
+        body: formData,
+      });
       if (!response.ok) throw new Error("Ürün güncelleme başarısız");
-      const data = await response.json();
-      // alert(data.message);
+      const data: Product = await response.json();
       fetchProducts();
       setShowEditPopup(false);
       setEditProduct(null);
@@ -69,14 +70,11 @@ const Admin = () => {
     }
   };
 
-  const handleDeleteProduct = async (Productsid: any) => {
+  const handleDeleteProduct = async (Productsid: number) => {
     try {
-      const response = await fetch(
-        `${BaseUrl}/delete/${Productsid}`,
-        {
-          method: "POST",
-        }
-      );
+      const response = await fetch(`${BaseUrl}/delete/${Productsid}`, {
+        method: "POST",
+      });
       if (!response.ok) throw new Error("Ürün silme başarısız");
       const data = await response.json();
       alert(data.message);
@@ -86,6 +84,7 @@ const Admin = () => {
       alert("Bir hata oluştu!");
     }
   };
+
   return (
     <div className="p-4 max-w-6xl mx-auto">
       <div className="flex justify-between items-center py-4 ">
@@ -101,7 +100,7 @@ const Admin = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {productList.map((product) => (
           <div
-            key={product.Productid}
+            key={product.Productsid}
             className="bg-white shadow-md rounded-lg p-4 flex flex-col items-center border hover:shadow-xl transition"
           >
             <img
