@@ -1,8 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useSearch } from "../hooks/useSearch";
 const Navbar: React.FC = () => {
-  const { setSearch } = useSearch();
 
 
   return (
@@ -21,7 +19,6 @@ const Navbar: React.FC = () => {
             type="search"
             className="w-full bg-gray-200/50 px-3 py-2 rounded focus:outline-none font-bold"
             placeholder="Ürün Ara"
-            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
 
@@ -33,7 +30,6 @@ const Navbar: React.FC = () => {
             type="search"
             className="w-[150px] bg-gray-100 px-3 py-1 rounded focus:outline-none"
             placeholder="Ürün Ara"
-            onChange={(e) => setSearch(e.target.value)}
           />
         </div>
       </div>
